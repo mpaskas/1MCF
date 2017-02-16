@@ -1,0 +1,41 @@
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.exe
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.pdb
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.xml
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Form1.resources
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Resources.resources
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.vbproj.GenerateResource.Cache
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.exe
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.xml
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.pdb
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Settings.resources
+C:\Users\SMNA\Google Drive\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Pass.resources
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.exe
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.xml
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.pdb
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.exe.config
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.exe
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.pdb
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.xml
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\bin\Debug\MySql.Data.dll
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.vbprojResolveAssemblyReference.cache
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Form1.resources
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Resources.resources
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Pass.resources
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Settings.resources
+D:\Work\Radovi\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.vbproj.GenerateResource.Cache
+D:\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.exe.config
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.exe
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.xml
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.pdb
+D:\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.exe
+D:\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.pdb
+D:\Projects\Brovajzer\Brovajzer\bin\Debug\Brovajzer.xml
+D:\Projects\Brovajzer\Brovajzer\bin\Debug\MySql.Data.dll
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.vbprojResolveAssemblyReference.cache
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Form1.resources
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Resources.resources
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Pass.resources
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.Settings.resources
+D:\Projects\Brovajzer\Brovajzer\obj\Debug\Brovajzer.vbproj.GenerateResource.Cache
+D:\Projects\Brovajzer\Brovajzer\bin\Debug\WebKitBrowser.dll
+D:\Projects\Brovajzer\Brovajzer\bin\Debug\WebKit.Interop.dll

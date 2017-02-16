@@ -1,0 +1,74 @@
+body{
+    margin: auto;
+    width:1000px;
+
+}
+button.selected{
+    color:red;
+}
+.header {
+	top:0px;
+   
+    height: 100px;
+    background-color:  dodgerblue;
+   
+    width :inherit;
+}
+.content {
+	width:inherit;
+     background-color:  brown;
+    min-height: 1000px;
+}
+.footer {
+	bottom: 0px;
+/*    position: fixed;*/
+   background-color:  aqua;
+    height: 50px;
+    width:inherit;
+    
+}
+.obr{
+   
+    margin-left: 100px; /*navi width*/
+}
+.navi{
+    float: left;
+    display: inline-block;
+    width: 100px; /*obr marg left*/
+    background-color:forestgreen;
+    min-height:  inherit;
+  
+        
+}
+.rez{
+    width: inherit;
+    height: auto;
+}
+.dva{
+    width:inherit;
+    background-color:cornflowerblue;
+    border: 2px solid black;
+    height: 120px;
+    position:relative;
+/*    align-content: center;*/
+    
+}
+h1{
+    width: 400px;
+    margin: auto;    
+    margin-top: 40px;
+}
+
+
+div.rezMcf{
+    position:absolute;
+    top:0;
+    width: 100px;
+    right:0;
+}
+p{
+    margin: auto;
+}
+p.p{
+    margin-top: 10px;
+}
