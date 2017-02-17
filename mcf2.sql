@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-02-14 14:58:18
+Date: 2017-02-17 15:36:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,43 +20,43 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `kontrol`;
 CREATE TABLE `kontrol` (
-  `id` int(11) NOT NULL,
-  `brpos` int(11) DEFAULT NULL,
+  `brpos` int(11) NOT NULL,
   `remake` smallint(3) DEFAULT NULL,
-  `operater` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `krug` smallint(2) NOT NULL,
+  PRIMARY KEY (`brpos`,`krug`),
   KEY `kontrol` (`brpos`),
-  KEY `kzapos` (`operater`),
-  CONSTRAINT `kposao` FOREIGN KEY (`brpos`) REFERENCES `posao` (`id`),
-  CONSTRAINT `kzapos` FOREIGN KEY (`operater`) REFERENCES `zaposleni` (`id`)
+  KEY `kzap` (`krug`),
+  CONSTRAINT `kposao` FOREIGN KEY (`brpos`) REFERENCES `posao` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of kontrol
 -- ----------------------------
+INSERT INTO `kontrol` VALUES ('1', '34', '1');
+INSERT INTO `kontrol` VALUES ('1', '1', '2');
 
 -- ----------------------------
 -- Table structure for masina
 -- ----------------------------
 DROP TABLE IF EXISTS `masina`;
 CREATE TABLE `masina` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `brmasine` varchar(4) DEFAULT NULL,
-  `idposla` int(11) DEFAULT NULL,
+  `idposla` int(11) NOT NULL,
   `dobrih` mediumint(4) DEFAULT NULL,
   `losih` mediumint(4) DEFAULT NULL,
   `datum` datetime DEFAULT CURRENT_TIMESTAMP,
-  `operater` smallint(2) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `krug` smallint(2) NOT NULL,
+  PRIMARY KEY (`idposla`,`krug`),
   KEY `mas` (`idposla`),
-  KEY `zap` (`operater`),
-  CONSTRAINT `poa` FOREIGN KEY (`idposla`) REFERENCES `posao` (`id`),
-  CONSTRAINT `zap` FOREIGN KEY (`operater`) REFERENCES `zaposleni` (`id`)
+  KEY `zap` (`krug`),
+  CONSTRAINT `poa` FOREIGN KEY (`idposla`) REFERENCES `posao` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of masina
 -- ----------------------------
+INSERT INTO `masina` VALUES ('12', '1', '54', '2', '2017-02-17 14:42:19', '1');
+INSERT INTO `masina` VALUES ('12', '1', '2', '12', '2017-02-17 15:15:06', '2');
 
 -- ----------------------------
 -- Table structure for posao
@@ -68,13 +68,19 @@ CREATE TABLE `posao` (
   `kolicina` mediumint(4) DEFAULT NULL,
   `datum` datetime DEFAULT NULL,
   `hitan` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `kontrola` smallint(2) DEFAULT NULL,
+  `operater` smallint(2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `kontrola` (`kontrola`),
+  KEY `operater` (`operater`),
+  CONSTRAINT `kontrola` FOREIGN KEY (`kontrola`) REFERENCES `zaposleni` (`id`),
+  CONSTRAINT `operater` FOREIGN KEY (`operater`) REFERENCES `zaposleni` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of posao
 -- ----------------------------
-INSERT INTO `posao` VALUES ('1', '170214_434231', '123', '2017-02-14 14:47:32', '1_');
+INSERT INTO `posao` VALUES ('1', '170214_434231', '123', '2017-02-14 14:47:32', '1_', null, null);
 
 -- ----------------------------
 -- Table structure for razlozi
@@ -150,10 +156,10 @@ CREATE TABLE `skart` (
   PRIMARY KEY (`serbr`),
   KEY `stat` (`status`),
   KEY `raz` (`razlog`),
-  KEY `szap` (`brkontrol`),
+  KEY `skont` (`brkontrol`),
+  CONSTRAINT `skont` FOREIGN KEY (`brkontrol`) REFERENCES `kontrol` (`brpos`),
   CONSTRAINT `srazlog` FOREIGN KEY (`razlog`) REFERENCES `razlozi` (`id`),
-  CONSTRAINT `sstatus` FOREIGN KEY (`status`) REFERENCES `status` (`id`),
-  CONSTRAINT `szap` FOREIGN KEY (`brkontrol`) REFERENCES `kontrol` (`id`)
+  CONSTRAINT `sstatus` FOREIGN KEY (`status`) REFERENCES `status` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
@@ -219,16 +225,19 @@ INSERT INTO `veza` VALUES ('41138', '1');
 -- ----------------------------
 DROP TABLE IF EXISTS `zaposleni`;
 CREATE TABLE `zaposleni` (
-  `id` smallint(2) NOT NULL,
+  `id` smallint(2) NOT NULL AUTO_INCREMENT,
   `prezime` varchar(50) DEFAULT NULL,
   `ime` varchar(50) DEFAULT NULL,
   `grupa` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of zaposleni
 -- ----------------------------
+INSERT INTO `zaposleni` VALUES ('1', 'Bojanović', 'Marko', '1');
+INSERT INTO `zaposleni` VALUES ('2', 'Manojlović', 'Dušan', '1');
+INSERT INTO `zaposleni` VALUES ('3', 'Baštovanović', 'Gordana', '1');
 
 -- ----------------------------
 -- View structure for rez
