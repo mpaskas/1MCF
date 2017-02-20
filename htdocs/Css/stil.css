@@ -66,6 +66,12 @@ div.rezMcf{
     width: 100px;
     right:0;
 }
+.tabela{
+    display: table-row;
+}
+div.labele{
+    display: table-cell;
+}
 p{
     margin: auto;
 }
