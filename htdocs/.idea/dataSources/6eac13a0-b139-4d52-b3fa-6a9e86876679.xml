@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mcf2@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="mcf2">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="ekovolonteri_rs_db_1"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="nova"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="phpmyadmin"/>
+    <schema id="9" parent="1" name="test"/>
+    <table id="10" parent="2" name="kontrol"/>
+    <table id="11" parent="2" name="letersop"/>
+    <table id="12" parent="2" name="masina"/>
+    <table id="13" parent="2" name="nmasine"/>
+    <table id="14" parent="2" name="posao"/>
+    <table id="15" parent="2" name="razlozi"/>
+    <table id="16" parent="2" name="rezervacija"/>
+    <table id="17" parent="2" name="skart"/>
+    <table id="18" parent="2" name="status"/>
+    <table id="19" parent="2" name="tipovi"/>
+    <table id="20" parent="2" name="veza"/>
+    <table id="21" parent="2" name="zaposleni"/>
+    <view id="22" parent="2" name="rez">
+      <Comment>VIEW</Comment>
+    </view>
+    <column id="23" parent="10" name="brpos">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="10" name="remake">
+      <Position>2</Position>
+      <DataType>smallint(3)|0</DataType>
+    </column>
+    <column id="25" parent="10" name="krug">
+      <Position>3</Position>
+      <DataType>smallint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="26" parent="10" name="kontrol">
+      <ColNames>brpos</ColNames>
+    </index>
+    <index id="27" parent="10" name="kzap">
+      <ColNames>krug</ColNames>
+    </index>
+    <key id="28" parent="10" name="PRIMARY">
+      <ColNames>brpos
+krug</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="10" name="kposao">
+      <ColNames>brpos</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>posao</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="30" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="11" name="posaoid">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="32" parent="11" name="remake">
+      <Position>3</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <column id="33" parent="11" name="lzapospri">
+      <Position>4</Position>
+      <DataType>smallint(2)|0</DataType>
+    </column>
+    <column id="34" parent="11" name="lzaposzav">
+      <Position>5</Position>
+      <DataType>smallint(2)|0</DataType>
+    </column>
+    <column id="35" parent="11" name="datum">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="36" parent="11" name="lposa">
+      <ColNames>posaoid</ColNames>
+    </index>
+    <index id="37" parent="11" name="lzapo">
+      <ColNames>lzapospri</ColNames>
+    </index>
+    <index id="38" parent="11" name="lzapoza">
+      <ColNames>lzaposzav</ColNames>
+    </index>
+    <key id="39" parent="11" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="11" name="lposa">
+      <ColNames>posaoid</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>posao</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="41" parent="11" name="lzapo">
+      <ColNames>lzapospri</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>zaposleni</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="42" parent="11" name="lzapoza">
+      <ColNames>lzaposzav</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>zaposleni</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="43" parent="12" name="brmasine">
+      <Position>1</Position>
+      <DataType>tinyint(2)|0</DataType>
+    </column>
+    <column id="44" parent="12" name="idposla">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="12" name="dobrih">
+      <Position>3</Position>
+      <DataType>mediumint(4)|0</DataType>
+    </column>
+    <column id="46" parent="12" name="losih">
+      <Position>4</Position>
+      <DataType>mediumint(4)|0</DataType>
+    </column>
+    <column id="47" parent="12" name="datum">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="48" parent="12" name="krug">
+      <Position>6</Position>
+      <DataType>smallint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="49" parent="12" name="mas">
+      <ColNames>idposla</ColNames>
+    </index>
+    <index id="50" parent="12" name="masina">
+      <ColNames>brmasine</ColNames>
+    </index>
+    <index id="51" parent="12" name="zap">
+      <ColNames>krug</ColNames>
+    </index>
+    <key id="52" parent="12" name="PRIMARY">
+      <ColNames>idposla
+krug</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="53" parent="12" name="masina">
+      <ColNames>brmasine</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>nmasine</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="54" parent="12" name="poa">
+      <ColNames>idposla</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>posao</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="55" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="56" parent="13" name="naziv">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <key id="57" parent="13" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="14" name="brposla">
+      <Position>2</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="14" name="kolicina">
+      <Position>3</Position>
+      <DataType>mediumint(4)|0</DataType>
+    </column>
+    <column id="61" parent="14" name="datum">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="62" parent="14" name="hitan">
+      <Position>5</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="63" parent="14" name="kontrola">
+      <Position>6</Position>
+      <DataType>smallint(2)|0</DataType>
+    </column>
+    <column id="64" parent="14" name="operater">
+      <Position>7</Position>
+      <DataType>smallint(2)|0</DataType>
+    </column>
+    <column id="65" parent="14" name="datumkraj">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="66" parent="14" name="dobrih">
+      <Position>9</Position>
+      <DataType>smallint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="67" parent="14" name="zin">
+      <Position>10</Position>
+      <DataType>smallint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="68" parent="14" name="zincip">
+      <Position>11</Position>
+      <DataType>smallint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="69" parent="14" name="remake">
+      <Position>12</Position>
+      <DataType>smallint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="70" parent="14" name="neproiz">
+      <Position>13</Position>
+      <DataType>smallint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="71" parent="14" name="admin">
+      <Position>14</Position>
+      <DataType>smallint(2)|0</DataType>
+    </column>
+    <index id="72" parent="14" name="admin">
+      <ColNames>admin</ColNames>
+    </index>
+    <index id="73" parent="14" name="brposla">
+      <ColNames>brposla</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="74" parent="14" name="kontrola">
+      <ColNames>kontrola</ColNames>
+    </index>
+    <index id="75" parent="14" name="operater">
+      <ColNames>operater</ColNames>
+    </index>
+    <key id="76" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="77" parent="14" name="brposla">
+      <ColNames>brposla</ColNames>
+      <UnderlyingIndexName>brposla</UnderlyingIndexName>
+    </key>
+    <foreign-key id="78" parent="14" name="kontrola">
+      <ColNames>kontrola</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>zaposleni</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="79" parent="14" name="operater">
+      <ColNames>operater</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>zaposleni</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="80" parent="14" name="admin">
+      <ColNames>admin</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>zaposleni</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="81" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>tinyint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="15" name="razlog">
+      <Position>2</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <key id="83" parent="15" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="84" parent="16" name="brrezervacije">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="16" name="tip">
+      <Position>2</Position>
+      <DataType>tinyint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="16" name="kolicina">
+      <Position>3</Position>
+      <DataType>mediumint(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="16" name="stanje">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="88" parent="16" name="datum">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="89" parent="16" name="brrezervacije">
+      <ColNames>brrezervacije</ColNames>
+    </index>
+    <index id="90" parent="16" name="tip">
+      <ColNames>tip</ColNames>
+    </index>
+    <key id="91" parent="16" name="PRIMARY">
+      <ColNames>brrezervacije
+tip</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="92" parent="16" name="tip">
+      <ColNames>tip</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>tipovi</RefTableName>
+      <RefColNames>Id</RefColNames>
+    </foreign-key>
+    <column id="93" parent="17" name="serbr">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="17" name="brkontrol">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="95" parent="17" name="jmbg">
+      <Position>3</Position>
+      <DataType>varchar(13)|0</DataType>
+    </column>
+    <column id="96" parent="17" name="status">
+      <Position>4</Position>
+      <DataType>tinyint(2)|0</DataType>
+    </column>
+    <column id="97" parent="17" name="razlog">
+      <Position>5</Position>
+      <DataType>tinyint(2)|0</DataType>
+    </column>
+    <index id="98" parent="17" name="raz">
+      <ColNames>razlog</ColNames>
+    </index>
+    <index id="99" parent="17" name="skont">
+      <ColNames>brkontrol</ColNames>
+    </index>
+    <index id="100" parent="17" name="stat">
+      <ColNames>status</ColNames>
+    </index>
+    <key id="101" parent="17" name="PRIMARY">
+      <ColNames>serbr</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="102" parent="17" name="skont">
+      <ColNames>brkontrol</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>kontrol</RefTableName>
+      <RefColNames>brpos</RefColNames>
+    </foreign-key>
+    <foreign-key id="103" parent="17" name="sstatus">
+      <ColNames>status</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>status</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="104" parent="17" name="srazlog">
+      <ColNames>razlog</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>razlozi</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="105" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>tinyint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="106" parent="18" name="status">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="107" parent="18" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="108" parent="19" name="Id">
+      <Position>1</Position>
+      <DataType>tinyint(2)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="109" parent="19" name="skraceno">
+      <Position>2</Position>
+      <DataType>varchar(4)|0</DataType>
+    </column>
+    <column id="110" parent="19" name="naziv">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="111" parent="19" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="112" parent="20" name="brr">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="20" name="brp">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="114" parent="20" name="posa">
+      <ColNames>brp</ColNames>
+    </index>
+    <key id="115" parent="20" name="PRIMARY">
+      <ColNames>brr
+brp</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="116" parent="20" name="rez">
+      <ColNames>brr</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>rezervacija</RefTableName>
+      <RefColNames>brrezervacije</RefColNames>
+    </foreign-key>
+    <foreign-key id="117" parent="20" name="vposa">
+      <ColNames>brp</ColNames>
+      <RefSchemaName>mcf2</RefSchemaName>
+      <RefTableName>posao</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="118" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>smallint(2)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="119" parent="21" name="prezime">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="120" parent="21" name="ime">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="121" parent="21" name="grupa">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="122" parent="21" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="123" parent="22" name="brrezervacije">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="124" parent="22" name="tip">
+      <Position>2</Position>
+      <DataType>tinyint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="125" parent="22" name="kolicina">
+      <Position>3</Position>
+      <DataType>mediumint(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+  </database-model>
+</dataSource>

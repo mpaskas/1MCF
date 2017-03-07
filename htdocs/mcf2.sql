@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : Na ESX-u
+Source Server         : lokalna
 Source Server Version : 50505
-Source Host           : 11.1.2.226:3306
+Source Host           : localhost:3306
 Source Database       : mcf2
 
 Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-02-20 15:12:55
+Date: 2017-03-01 14:39:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,16 +32,37 @@ CREATE TABLE `kontrol` (
 -- ----------------------------
 -- Records of kontrol
 -- ----------------------------
-INSERT INTO `kontrol` VALUES ('1', '34', '1');
-INSERT INTO `kontrol` VALUES ('1', '1', '2');
-INSERT INTO `kontrol` VALUES ('1', '45', '3');
+
+-- ----------------------------
+-- Table structure for letersop
+-- ----------------------------
+DROP TABLE IF EXISTS `letersop`;
+CREATE TABLE `letersop` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `posaoid` int(11) DEFAULT NULL,
+  `remake` smallint(6) DEFAULT NULL,
+  `lzapospri` smallint(2) DEFAULT NULL,
+  `lzaposzav` smallint(2) DEFAULT NULL,
+  `datum` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `lposa` (`posaoid`),
+  KEY `lzapo` (`lzapospri`),
+  KEY `lzapoza` (`lzaposzav`),
+  CONSTRAINT `lposa` FOREIGN KEY (`posaoid`) REFERENCES `posao` (`id`),
+  CONSTRAINT `lzapo` FOREIGN KEY (`lzapospri`) REFERENCES `zaposleni` (`id`),
+  CONSTRAINT `lzapoza` FOREIGN KEY (`lzaposzav`) REFERENCES `zaposleni` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of letersop
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for masina
 -- ----------------------------
 DROP TABLE IF EXISTS `masina`;
 CREATE TABLE `masina` (
-  `brmasine` varchar(4) DEFAULT NULL,
+  `brmasine` tinyint(2) DEFAULT NULL,
   `idposla` int(11) NOT NULL,
   `dobrih` mediumint(4) DEFAULT NULL,
   `losih` mediumint(4) DEFAULT NULL,
@@ -50,15 +71,36 @@ CREATE TABLE `masina` (
   PRIMARY KEY (`idposla`,`krug`),
   KEY `mas` (`idposla`),
   KEY `zap` (`krug`),
+  KEY `masina` (`brmasine`),
+  CONSTRAINT `masina` FOREIGN KEY (`brmasine`) REFERENCES `nmasine` (`id`),
   CONSTRAINT `poa` FOREIGN KEY (`idposla`) REFERENCES `posao` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of masina
 -- ----------------------------
-INSERT INTO `masina` VALUES ('12', '1', '54', '2', '2017-02-17 14:42:19', '1');
-INSERT INTO `masina` VALUES ('12', '1', '2', '12', '2017-02-17 15:15:06', '2');
-INSERT INTO `masina` VALUES ('123', '1', '45', '66', '2017-02-20 07:32:08', '3');
+
+-- ----------------------------
+-- Table structure for nmasine
+-- ----------------------------
+DROP TABLE IF EXISTS `nmasine`;
+CREATE TABLE `nmasine` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `naziv` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of nmasine
+-- ----------------------------
+INSERT INTO `nmasine` VALUES ('1', 'M1');
+INSERT INTO `nmasine` VALUES ('2', 'M3');
+INSERT INTO `nmasine` VALUES ('3', 'M5');
+INSERT INTO `nmasine` VALUES ('4', 'M6');
+INSERT INTO `nmasine` VALUES ('5', 'M39');
+INSERT INTO `nmasine` VALUES ('6', 'M40');
+INSERT INTO `nmasine` VALUES ('7', 'M501');
+INSERT INTO `nmasine` VALUES ('8', 'M43');
 
 -- ----------------------------
 -- Table structure for posao
@@ -73,11 +115,11 @@ CREATE TABLE `posao` (
   `kontrola` smallint(2) DEFAULT NULL,
   `operater` smallint(2) DEFAULT NULL,
   `datumkraj` datetime DEFAULT NULL,
-  `dobrih` mediumint(4) DEFAULT '0',
-  `zin` mediumint(4) DEFAULT '0',
-  `zincip` mediumint(4) DEFAULT '0',
-  `remake` mediumint(4) DEFAULT '0',
-  `neproiz` mediumint(4) DEFAULT '0',
+  `dobrih` smallint(4) DEFAULT '0',
+  `zin` smallint(4) DEFAULT '0',
+  `zincip` smallint(4) DEFAULT '0',
+  `remake` smallint(4) DEFAULT '0',
+  `neproiz` smallint(4) DEFAULT '0',
   `admin` smallint(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `brposla` (`brposla`),
@@ -87,12 +129,14 @@ CREATE TABLE `posao` (
   CONSTRAINT `admin` FOREIGN KEY (`admin`) REFERENCES `zaposleni` (`id`),
   CONSTRAINT `kontrola` FOREIGN KEY (`kontrola`) REFERENCES `zaposleni` (`id`),
   CONSTRAINT `operater` FOREIGN KEY (`operater`) REFERENCES `zaposleni` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of posao
 -- ----------------------------
-INSERT INTO `posao` VALUES ('1', '170214_434231', '123', '2017-02-14 14:47:32', '1_', '2', '1', null, null, null, null, null, null, null);
+INSERT INTO `posao` VALUES ('17', '170223_123122', '122', '2017-02-23 14:14:00', '', null, null, null, '0', '0', '0', '0', '0', null);
+INSERT INTO `posao` VALUES ('18', '170224_123456', '300', '2017-02-24 12:47:14', '', null, null, null, '0', '0', '0', '0', '0', null);
+INSERT INTO `posao` VALUES ('19', '170301_155645', '300', '2017-03-01 08:23:54', '1_', null, null, null, '0', '0', '0', '0', '0', null);
 
 -- ----------------------------
 -- Table structure for razlozi
@@ -127,30 +171,30 @@ CREATE TABLE `rezervacija` (
 -- ----------------------------
 -- Records of rezervacija
 -- ----------------------------
-INSERT INTO `rezervacija` VALUES ('33170', '3', '520', '1', null);
-INSERT INTO `rezervacija` VALUES ('33171', '3', '520', '1', null);
-INSERT INTO `rezervacija` VALUES ('33172', '4', '520', '1', null);
-INSERT INTO `rezervacija` VALUES ('33173', '4', '70', '1', null);
+INSERT INTO `rezervacija` VALUES ('33170', '3', '520', '2', null);
+INSERT INTO `rezervacija` VALUES ('33171', '3', '520', '2', null);
+INSERT INTO `rezervacija` VALUES ('33172', '4', '520', '2', null);
+INSERT INTO `rezervacija` VALUES ('33173', '4', '70', '2', null);
 INSERT INTO `rezervacija` VALUES ('33221', '3', '520', '1', null);
 INSERT INTO `rezervacija` VALUES ('33222', '4', '520', '1', null);
 INSERT INTO `rezervacija` VALUES ('33230', '4', '2', '1', null);
 INSERT INTO `rezervacija` VALUES ('33231', '4', '80', '1', null);
 INSERT INTO `rezervacija` VALUES ('41017', '1', '320', '1', null);
-INSERT INTO `rezervacija` VALUES ('41019', '1', '320', '2', null);
-INSERT INTO `rezervacija` VALUES ('41020', '1', '320', '2', null);
-INSERT INTO `rezervacija` VALUES ('41028', '1', '130', '2', null);
-INSERT INTO `rezervacija` VALUES ('41030', '1', '320', '2', null);
-INSERT INTO `rezervacija` VALUES ('41031', '1', '320', '1', null);
+INSERT INTO `rezervacija` VALUES ('41019', '1', '320', '1', null);
+INSERT INTO `rezervacija` VALUES ('41020', '1', '320', '1', null);
+INSERT INTO `rezervacija` VALUES ('41028', '1', '130', '1', null);
+INSERT INTO `rezervacija` VALUES ('41030', '1', '320', '1', null);
+INSERT INTO `rezervacija` VALUES ('41031', '1', '320', '2', null);
 INSERT INTO `rezervacija` VALUES ('41032', '2', '320', '1', null);
 INSERT INTO `rezervacija` VALUES ('41033', '2', '320', '1', null);
 INSERT INTO `rezervacija` VALUES ('41034', '2', '50', '1', null);
 INSERT INTO `rezervacija` VALUES ('41035', '1', '100', '1', null);
-INSERT INTO `rezervacija` VALUES ('41138', '1', '320', '2', null);
+INSERT INTO `rezervacija` VALUES ('41138', '1', '320', '1', null);
 INSERT INTO `rezervacija` VALUES ('41141', '1', '320', '1', null);
 INSERT INTO `rezervacija` VALUES ('41146', '1', '320', '1', null);
-INSERT INTO `rezervacija` VALUES ('41147', '1', '320', '2', null);
+INSERT INTO `rezervacija` VALUES ('41147', '1', '320', '1', null);
 INSERT INTO `rezervacija` VALUES ('41148', '2', '320', '1', null);
-INSERT INTO `rezervacija` VALUES ('41153', '1', '170', '2', null);
+INSERT INTO `rezervacija` VALUES ('41153', '1', '170', '1', null);
 INSERT INTO `rezervacija` VALUES ('41155', '2', '320', '1', null);
 INSERT INTO `rezervacija` VALUES ('41157', '2', '70', '1', null);
 INSERT INTO `rezervacija` VALUES ('41158', '1', '130', '1', null);
@@ -230,7 +274,11 @@ CREATE TABLE `veza` (
 -- ----------------------------
 -- Records of veza
 -- ----------------------------
-INSERT INTO `veza` VALUES ('41138', '1');
+INSERT INTO `veza` VALUES ('33170', '17');
+INSERT INTO `veza` VALUES ('33171', '17');
+INSERT INTO `veza` VALUES ('33172', '19');
+INSERT INTO `veza` VALUES ('33173', '19');
+INSERT INTO `veza` VALUES ('41031', '18');
 
 -- ----------------------------
 -- Table structure for zaposleni

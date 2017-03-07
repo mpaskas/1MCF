@@ -3,62 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title> Mcf </title>
-      <link href="Css/stil.css" rel="stylesheet" type="text/css" />
-      <script src="js/funkcije.js" type="text/javascript"></script>
-</head>
-<body>
-  <?php include "conDB.php";?>
-   <div class="header">
-       
-   </div>
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+     
    
-   <div class="content">
-      <div class="navi">
-         <div class="rez">
-             <?php 
-             $rezervacije= "SELECT rezervacija.brrezervacije, tipovi.skraceno,rezervacija.kolicina FROM rezervacija INNER JOIN tipovi ON rezervacija.tip = tipovi.Id WHERE rezervacija.stanje=1";
-             $g = mysqli_query($con,$rezervacije);
-            
-             while($r = mysqli_fetch_row ($g)){
-                 echo "<div><a href='./?rez={$r[0]}&tip={$r[1]}&inc=FillJob.php'>{$r[0]} {$r[1]} {$r[2]}</a></div>";
-             }
-             
-             ?>
-         </div>
-         <div class="rez">
-            <?php
-             $poslovi="SELECT DISTINCT posao.brposla, posao.hitan, tipovi.skraceno,posao.kolicina FROM posao INNER JOIN veza ON veza.brp = posao.id INNER JOIN rezervacija ON veza.brr = rezervacija.brrezervacije INNER JOIN tipovi ON rezervacija.tip = tipovi.Id WHERE rezervacija.stanje=2";
-                 $g = mysqli_query($con,$poslovi);
-            
-             while($r = mysqli_fetch_row ($g)){
-                 echo "<div> <a href='./?pos={$r[0]}&inc=mcf.php'>{$r[1]} {$r[2]} {$r[0]}</a></div>";
-             }
-             
-                 
-                 ?>
-         </div>
+      <link href="bootcss/bootstrap.css" rel="stylesheet" type="text/css" />
+      <link href="Css/stil.css" rel="stylesheet" type="text/css" />
+     <script src="js/vreme.js" type="text/javascript"></script>
+      <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+      <script src="js/bootstrap.min.js" type="text/javascript"></script>
+       <script src="js/jquery-ui.js" type="text/javascript"></script>
+         <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.theme.css">
+         <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.structure.css">
           
-      </div>
-      <div class="obr">
-         
-         
-         <?php 
-          if (!isset ($_GET['inc'])){
-              $strana="mcf.php";
+      
+      
+</head>
+<body onload="startTime()">
+  <?php include "conDB.php";?>
+  
+  
+  <?php 
+          if (!isset ($_GET['grupa'])){
+              $strana="review";
           }else{
-          $strana=$_GET['inc'];}
-          include "{$strana}";
+          $strana=$_GET['grupa'];}
+          include "{$strana}.php";
           ?>
-          
-      </div>
-       
-       
-   </div>
    
    <div class="footer">
-       
+	   <?php echo date('d.m.Y')."  ";?><span id="vreme"></span>
    </div>
-   
+   <script src="js/funkcije.js" type="text/javascript"></script>
     
 </body>
 </html>

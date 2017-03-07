@@ -10,15 +10,10 @@
     mysqli_query($con,$nasa);
 
 function datum ($s){
+	if($s != null){
     $m=date_format(date_create($s),'d.m.Y');
   return $m;
+	}
 }
-function ako($e,$s,$r){
-    If(!$e){
-return   "<input type='text' name='{$s}{$r}'>";    
-        
-    }else{
-     return   "<input type='text' name='{$s}{$r}' value='{$e}'>"; 
-    }
-}
+
 ?>

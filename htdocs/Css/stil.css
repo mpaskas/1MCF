@@ -1,62 +1,137 @@
 body{
     margin: auto;
-    width:1000px;
-
+    width:1100px;
+	
+/*	background-color: cornflowerblue;*/
+	
 }
 button.selected{
     color:red;
 }
-.header {
+.tp2 {
 	top:0px;
-   
-    height: 100px;
-    background-color:  dodgerblue;
+       height: 120px;
+	background-image: url(../images/tp2.jpg);
+	border-radius: 5px;
+/*    background-color:  dodgerblue;*/
    
     width :inherit;
 }
+.ls{
+		top:0px;
+       height: 120px;
+	border-radius: 5px;
+	background-image: url(../images/ls.jpg);
+}
+.review{
+		top:0px;
+       height: 120px;
+	border-radius: 5px;
+	background-image: url(../images/review.jpg);
+}
 .content {
 	width:inherit;
-     background-color:  brown;
-    min-height: 1000px;
+/*	background-image: url(../images/MUP.jpg);*/
+/*	background-repeat: no-repeat;*/
+     background-color: whitesmoke;
+	height:100%;
+/*    min-height: 1000px;*/
+/*	position: relative;*/
+
+	padding:0px 0px 5px 0px;
+	border-radius: 3px;
+	margin-bottom: 65px;
+overflow:auto;
+	
+	
 }
 .footer {
-	bottom: 0px;
+	position:fixed;
+	bottom: 10px;
 /*    position: fixed;*/
-   background-color:  aqua;
+	margin: 5px 0px 5px 0px;
+	padding:3px 0px 5px 0px;
+   background-color:	#236ab3;
     height: 50px;
     width:inherit;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 26px;
+	font-weight: 800;
+	border: 2px solid #194d80;
+	-webkit-text-stroke: 1px black;
+	color: white;
+	text-shadow: 2px 2px 4px black;
     
 }
 .obr{
-   
-    margin-left: 100px; /*navi width*/
+	top: 0px;
+   display: inline-block;
+/*	position: absolute;*/
+	width:845px;
+/*	margin-bottom: 65px;*/
+	right: 0px;
+/*    margin-left: 202px; navi width*/
+/*	float: right;*/
 }
 .navi{
+	
     float: left;
     display: inline-block;
-    width: 100px; /*obr marg left*/
-    background-color:forestgreen;
+    width: 245px;  /* obr marg left*/
+    /*background-color:antiquewhite;*/
     min-height:  inherit;
-  
-        
+	border-radius: 5px;
+	border:2px solid gray;
+	/*margin: 1px;*/
+	margin: 5px 1px 1px 7px;
+/*	position: absolute;*/
+	
+}
+a{
+	position: relative;
+}
+a:hover{
+	text-decoration: none;
+	
+}
+.nas{
+	margin: 5px;
 }
 .rez{
-    width: inherit;
+	padding-left: 10px;
+/*    width: inherit;*/
     height: auto;
+	border:1px solid gray;
+	border-radius:5px;
+	
+	margin:1px;
 }
+
 .dva{
     width:inherit;
-    background-color:cornflowerblue;
-    border: 2px solid black;
+    background-color:#bfd9f2;
+	border-radius: 5px;
+	margin:5px;
+    border: 2px solid gray;
     height: 120px;
     position:relative;
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 /*    align-content: center;*/
     
 }
+.donji{
+	
+	height: auto;
+	padding: 10px 20px 10px 20px;
+}
 h1{
-    width: 400px;
+    width: 550px;
     margin: auto;    
     margin-top: 40px;
+	text-align: center;
+	font-family: sans-serif;
+/*		 text-shadow: 2px 2px 4px #0087ff;*/
 }
 
 
@@ -64,17 +139,183 @@ div.rezMcf{
     position:absolute;
     top:0;
     width: 100px;
-    right:0;
+    right:20px;
 }
 .tabela{
     display: table-row;
 }
-div.labele{
+div.labele {
     display: table-cell;
+	padding:5px;
+	vertical-align: bottom;
+	
+	}
+.nov div,p, select{
+	height: 30px;
+	display: block;
+
+	}
+.labele p, select{
+	margin: 2px;
+}
+input{
+	width:inherit;
+	}
+label {
+    display:block;
+	margin-bottom: 3px;
+}
+.ukup{
+	display: inline-block;
+	text-align: center;
+	width:115px;
 }
 p{
+	text-align: center;
+	width: 50px;
     margin: auto;
 }
 p.p{
     margin-top: 10px;
 }
+ input,select{
+/*	 border-radius: 5px;*/
+	text-align: right;
+	 background-color:floralwhite;
+	border-radius:3px;
+	border: 1px solid gray;
+	 padding-right: 3px;
+	 }
+select[name="zapo3"]{
+	display: inline-block;
+}
+.reza{
+	margin-top: auto;
+	width: 150px;
+	display: inline;
+/*	font-size: 20px;*/
+	border: 0px solid;
+    background-color: transparent;
+/*	font-weight: 800;*/
+	color: black;
+}
+h1.prva{
+	margin-top: 20px;
+	}
+.un{
+	margin: 5px;
+	text-align: center;
+	display: inline-block;
+	font-size: 26px;
+}
+input[type=checkbox]{
+	transform: scale(3);
+}
+.btne{
+	color: cornsilk;
+	background-color: cornflowerblue;
+	height:auto;
+	border: 1px solid gray;
+	}
+.btne:hover{
+	background-color:firebrick;
+		border: 1px solid  cornsilk;
+	}
+
+.reza2{
+		font-size: 45px;
+}
+.selected{
+	background-color:aliceblue;
+	border:1px solid gray;
+	border-radius: 5px 0px 0px 5px;
+	color: firebrick;
+}
+.gornji{
+	text-align: center;
+}
+ p.pre {
+	height:auto;
+}
+.lsdiv{
+	width: 90px;
+}
+select [name="zapo4"]{
+	display: inline;
+}
+.rezultat{
+	margin-top: 30px;
+}
+
+.rev{
+	padding: 10px 5px 10px 5px;
+	margin: 5px 0px 5px 0px;
+	background-color: whitesmoke;
+	border-radius: 5px;
+	
+}
+.rered div{
+	display: inline-block;
+	margin: 3px 5px;
+	pointer-events: none;
+	font-size: 18px;}
+.rered{
+	background-color: beige;
+}
+.tablica{
+	width:100%;
+}
+.tablica td { 
+	padding-left: 5px;
+	
+	background-color:beige;
+}
+.tablica th{
+	text-align: center;
+	padding-left: 5px;
+}
+.tablica tr{
+	border: 1px solid gray;
+	border-radius: 5px;
+	
+}
+.tablica td:nth-child(1n+3){
+	border: 1px solid black;
+	background-color:deepskyblue;
+	text-align: center;
+	min-width: 131px;
+	
+}
+#datepicker1, #datepicker2 {
+	color: gray;
+	width: 110px;
+}
+a#s{
+	color:#0275d8;
+}
+a#s:hover{
+	color: #1122aa;
+	cursor:pointer;
+}
+.uiselect{width: 100%}
+/* This is to remove the arrow of select element in IE */
+select::-ms-expand {	display: none; }
+select{
+	-webkit-appearance: none;
+	appearance: none;
+    padding: 0 4px 0 4px;
+
+}
+@-moz-document url-prefix(){
+	.ui-select{border: 1px solid #CCC; border-radius: 4px; box-sizing: border-box; position: relative; overflow: hidden;}
+	.ui-select select { width: 110%; background-position: right 30px center !important; border: none !important;}
+}
+/*
+
+table { border-collapse:collapse; }
+td { border: solid 1px #000; }
+tr:first-child td:first-child { border-top-left-radius: 10px; }
+tr:first-child td:last-child { border-top-right-radius: 10px; }
+tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+*/

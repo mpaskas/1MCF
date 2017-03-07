@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^oranges.html$ index.php?grupa=tp2&inc=mcf
